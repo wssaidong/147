@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>比赛管理 - 台球联盟管理系统</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">台球联盟管理</div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">数据中心</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span>数据看板</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">基础管理</div>
+        <a href="clubs.html" class="nav-item">
+          <span class="nav-item-icon">🎱</span>
+          <span>台球厅管理</span>
+        </a>
+        <a href="assistants.html" class="nav-item">
+          <span class="nav-item-icon">👤</span>
+          <span>助教管理</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">业务中心</div>
+        <a href="tournaments.html" class="nav-item active">
+          <span class="nav-item-icon">🏆</span>
+          <span>比赛管理</span>
+        </a>
+        <a href="rankings.html" class="nav-item">
+          <span class="nav-item-icon">📈</span>
+          <span>奖金积分</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <h1 class="page-title">比赛管理</h1>
+      <div class="page-actions">
+        <button class="btn btn-primary" onclick="openModal('createModal')">+ 创建比赛</button>
+      </div>
+    </header>
+
+    <div class="page-content page-tournaments">
+      <!-- 筛选标签 -->
+      <div class="filter-tabs">
+        <span class="filter-tab active">全部 (156)</span>
+        <span class="filter-tab">筹备中 (8)</span>
+        <span class="filter-tab">报名中 (12)</span>
+        <span class="filter-tab">进行中 (5)</span>
+        <span class="filter-tab">已结束 (131)</span>
+      </div>
+
+      <!-- 比赛列表 -->
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>比赛名称</th>
+                <th>主办球厅</th>
+                <th>赛制</th>
+                <th>时间</th>
+                <th>参赛人数</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>春季会员赛</strong></td>
+                <td>星牌台球俱乐部</td>
+                <td>单败淘汰</td>
+                <td>2026-04-25</td>
+                <td>32 人</td>
+                <td><span class="status status-finished">已结束</span></td>
+                <td>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="导出成绩">📤</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>青少年选拔赛</strong></td>
+                <td>来力台球城</td>
+                <td>双败淘汰</td>
+                <td>2026-04-28</td>
+                <td>24 人</td>
+                <td><span class="status status-ongoing">进行中</span></td>
+                <td>
+                  <button class="btn-icon" title="成绩录入">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="赛程管理">📅</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>五一劳动节杯</strong></td>
+                <td>绅士台球会所</td>
+                <td>循环赛</td>
+                <td>2026-05-01</td>
+                <td>48 人</td>
+                <td><span class="status status-preparing">筹备中</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="管理报名">👥</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>周末友谊赛</strong></td>
+                <td>星牌台球俱乐部</td>
+                <td>单败淘汰</td>
+                <td>2026-04-20</td>
+                <td>16 人</td>
+                <td><span class="status status-finished">已结束</span></td>
+                <td>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="导出成绩">📤</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>会员周赛 #12</strong></td>
+                <td>来力台球城</td>
+                <td>双败淘汰</td>
+                <td>2026-04-30</td>
+                <td>20 人</td>
+                <td><span class="status status-preparing">报名中</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="管理报名">👥</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 赛程预览区域 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">当前进行中比赛 - 赛程对阵图</h3>
+        </div>
+        <div class="bracket-preview">
+          <h3>青少年选拔赛 - 16强对阵</h3>
+          <p style="margin-top: 8px; opacity: 0.8;">双败淘汰制 · 4强已产生</p>
+          <div style="display: flex; justify-content: center; gap: 60px; margin-top: 24px; font-size: 14px;">
+            <div style="text-align: left;">
+              <p>🟢 陈亮 → 李娜</p>
+              <p>🟢 张伟 → 王强</p>
+              <p style="opacity: 0.6;">⚪ 刘洋 - 王明</p>
+              <p style="opacity: 0.6;">⚪ 赵龙 - 孙杰</p>
+            </div>
+            <div style="text-align: left;">
+              <p>🟢 李明 → (待定)</p>
+              <p>🟢 周杰 → (待定)</p>
+              <p style="opacity: 0.6;">⚪ 吴涛 - 郑华</p>
+              <p style="opacity: 0.6;">⚪ 冯磊 - 何晨</p>
+            </div>
+          </div>
+          <p style="margin-top: 24px; font-size: 13px; opacity: 0.8;">🟢 = 已晋级 | ⚪ = 待比赛</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 创建比赛弹窗 -->
+  <div class="modal-overlay" id="createModal">
+    <div class="modal" style="max-width: 640px;">
+      <div class="modal-header">
+        <h3 class="modal-title">创建比赛</h3>
+        <button class="modal-close" onclick="closeModal('createModal')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">比赛名称 *</label>
+          <input type="text" class="form-input" placeholder="请输入比赛名称">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">主办球厅 *</label>
+            <select class="form-select">
+              <option value="">请选择</option>
+              <option value="1">星牌台球俱乐部</option>
+              <option value="2">来力台球城</option>
+              <option value="3">绅士台球会所</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">赛制 *</label>
+            <select class="form-select">
+              <option value="">请选择</option>
+              <option value="single">单败淘汰</option>
+              <option value="double">双败淘汰</option>
+              <option value="round-robin">循环赛</option>
+              <option value="swiss">瑞士制</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">开始时间 *</label>
+            <input type="datetime-local" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">结束时间</label>
+            <input type="datetime-local" class="form-input">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">参赛人数上限</label>
+            <input type="number" class="form-input" placeholder="如：32">
+          </div>
+          <div class="form-group">
+            <label class="form-label">报名截止时间</label>
+            <input type="datetime-local" class="form-input">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">比赛说明</label>
+          <textarea class="form-input" rows="3" placeholder="请输入比赛说明或规则"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('createModal')">取消</button>
+        <button class="btn btn-primary">下一步：添加参赛人员</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+  </script>
+</body>
+</html>

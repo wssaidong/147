@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台球厅管理 - 台球联盟管理系统</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">台球联盟管理</div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">数据中心</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span>数据看板</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">基础管理</div>
+        <a href="clubs.html" class="nav-item active">
+          <span class="nav-item-icon">🎱</span>
+          <span>台球厅管理</span>
+        </a>
+        <a href="assistants.html" class="nav-item">
+          <span class="nav-item-icon">👤</span>
+          <span>助教管理</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">业务中心</div>
+        <a href="tournaments.html" class="nav-item">
+          <span class="nav-item-icon">🏆</span>
+          <span>比赛管理</span>
+        </a>
+        <a href="rankings.html" class="nav-item">
+          <span class="nav-item-icon">📈</span>
+          <span>奖金积分</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <h1 class="page-title">台球厅管理</h1>
+      <div class="page-actions">
+        <button class="btn btn-primary" onclick="openModal('addModal')">+ 新增台球厅</button>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <!-- 搜索和筛选 -->
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="搜索台球厅名称...">
+        <select class="form-select" style="width: 150px;">
+          <option value="">全部状态</option>
+          <option value="active">营业中</option>
+          <option value="inactive">已停用</option>
+        </select>
+      </div>
+
+      <!-- 台球厅列表 -->
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>名称</th>
+                <th>地址</th>
+                <th>联系电话</th>
+                <th>营业时间</th>
+                <th>球台数量</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>星牌台球俱乐部</strong></td>
+                <td>北京市朝阳区建国路88号</td>
+                <td>010-88881234</td>
+                <td>09:00 - 02:00</td>
+                <td>12 台</td>
+                <td><span class="status status-active">营业中</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="停用">⏸️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>来力台球城</strong></td>
+                <td>上海市静安区南京西路1266号</td>
+                <td>021-88882345</td>
+                <td>10:00 - 23:00</td>
+                <td>8 台</td>
+                <td><span class="status status-active">营业中</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="停用">⏸️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>绅士台球会所</strong></td>
+                <td>广州市天河区天河路385号</td>
+                <td>020-88883456</td>
+                <td>11:00 - 01:00</td>
+                <td>6 台</td>
+                <td><span class="status status-active">营业中</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="停用">⏸️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>黑八桌球吧</strong></td>
+                <td>深圳市南山区科技园南路88号</td>
+                <td>0755-88884567</td>
+                <td>14:00 - 02:00</td>
+                <td>5 台</td>
+                <td><span class="status status-inactive">已停用</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="启用">▶️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 新增/编辑弹窗 -->
+  <div class="modal-overlay" id="addModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">新增台球厅</h3>
+        <button class="modal-close" onclick="closeModal('addModal')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">台球厅名称 *</label>
+            <input type="text" class="form-input" placeholder="请输入台球厅名称">
+          </div>
+          <div class="form-group">
+            <label class="form-label">联系电话 *</label>
+            <input type="tel" class="form-input" placeholder="请输入联系电话">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">地址 *</label>
+          <input type="text" class="form-input" placeholder="请输入详细地址">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">营业时间</label>
+            <input type="text" class="form-input" placeholder="如：09:00 - 23:00">
+          </div>
+          <div class="form-group">
+            <label class="form-label">球台数量</label>
+            <input type="number" class="form-input" placeholder="请输入数量">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">球台类型</label>
+          <select class="form-select">
+            <option value="">请选择</option>
+            <option value="snooker">斯诺克</option>
+            <option value="american">美式落袋</option>
+            <option value="chinese">中式台球</option>
+            <option value="mixed">混合</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">状态</label>
+          <select class="form-select">
+            <option value="active">营业中</option>
+            <option value="inactive">已停用</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('addModal')">取消</button>
+        <button class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+  </script>
+</body>
+</html>

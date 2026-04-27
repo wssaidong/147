@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>助教管理 - 台球联盟管理系统</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">台球联盟管理</div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">数据中心</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span>数据看板</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">基础管理</div>
+        <a href="clubs.html" class="nav-item">
+          <span class="nav-item-icon">🎱</span>
+          <span>台球厅管理</span>
+        </a>
+        <a href="assistants.html" class="nav-item active">
+          <span class="nav-item-icon">👤</span>
+          <span>助教管理</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">业务中心</div>
+        <a href="tournaments.html" class="nav-item">
+          <span class="nav-item-icon">🏆</span>
+          <span>比赛管理</span>
+        </a>
+        <a href="rankings.html" class="nav-item">
+          <span class="nav-item-icon">📈</span>
+          <span>奖金积分</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <h1 class="page-title">助教管理</h1>
+      <div class="page-actions">
+        <button class="btn btn-primary" onclick="openModal('addModal')">+ 新增助教</button>
+      </div>
+    </header>
+
+    <div class="page-content">
+      <!-- 搜索和筛选 -->
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="搜索助教姓名...">
+        <select class="form-select" style="width: 180px;">
+          <option value="">全部球厅</option>
+          <option value="1">星牌台球俱乐部</option>
+          <option value="2">来力台球城</option>
+          <option value="3">绅士台球会所</option>
+        </select>
+        <select class="form-select" style="width: 150px;">
+          <option value="">全部状态</option>
+          <option value="employed">在职</option>
+          <option value="resigned">已离职</option>
+        </select>
+      </div>
+
+      <!-- 助教列表 -->
+      <div class="card">
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>姓名</th>
+                <th>联系电话</th>
+                <th>所属球厅</th>
+                <th>擅长球种</th>
+                <th>等级</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>张伟</strong></td>
+                <td>138****1234</td>
+                <td>星牌台球俱乐部</td>
+                <td>中式台球</td>
+                <td>专业一段</td>
+                <td><span class="status status-active">在职</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="查看比赛记录">🏆</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>李娜</strong></td>
+                <td>139****2345</td>
+                <td>来力台球城</td>
+                <td>斯诺克</td>
+                <td>专业三段</td>
+                <td><span class="status status-active">在职</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="查看比赛记录">🏆</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>王强</strong></td>
+                <td>137****3456</td>
+                <td>绅士台球会所</td>
+                <td>美式落袋</td>
+                <td>业余五段</td>
+                <td><span class="status status-active">在职</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="查看比赛记录">🏆</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>陈明</strong></td>
+                <td>136****4567</td>
+                <td>星牌台球俱乐部</td>
+                <td>中式台球</td>
+                <td>专业二段</td>
+                <td><span class="status status-inactive">已离职</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="查看比赛记录">🏆</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>刘洋</strong></td>
+                <td>135****5678</td>
+                <td>来力台球城</td>
+                <td>斯诺克</td>
+                <td>专业一段</td>
+                <td><span class="status status-active">在职</span></td>
+                <td>
+                  <button class="btn-icon" title="编辑">✏️</button>
+                  <button class="btn-icon" title="查看详情">👁️</button>
+                  <button class="btn-icon" title="查看比赛记录">🏆</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 新增/编辑弹窗 -->
+  <div class="modal-overlay" id="addModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">新增助教</h3>
+        <button class="modal-close" onclick="closeModal('addModal')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">姓名 *</label>
+            <input type="text" class="form-input" placeholder="请输入姓名">
+          </div>
+          <div class="form-group">
+            <label class="form-label">联系电话 *</label>
+            <input type="tel" class="form-input" placeholder="请输入联系电话">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">所属球厅 *</label>
+            <select class="form-select">
+              <option value="">请选择</option>
+              <option value="1">星牌台球俱乐部</option>
+              <option value="2">来力台球城</option>
+              <option value="3">绅士台球会所</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">状态</label>
+            <select class="form-select">
+              <option value="employed">在职</option>
+              <option value="resigned">已离职</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">擅长球种</label>
+            <select class="form-select">
+              <option value="">请选择</option>
+              <option value="snooker">斯诺克</option>
+              <option value="american">美式落袋</option>
+              <option value="chinese">中式台球</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">等级/段位</label>
+            <select class="form-select">
+              <option value="">请选择</option>
+              <option value="pro1">专业一段</option>
+              <option value="pro2">专业二段</option>
+              <option value="pro3">专业三段</option>
+              <option value="am1">业余一段</option>
+              <option value="am3">业余三段</option>
+              <option value="am5">业余五段</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">备注</label>
+          <textarea class="form-input" rows="3" placeholder="请输入备注信息"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('addModal')">取消</button>
+        <button class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+  </script>
+</body>
+</html>

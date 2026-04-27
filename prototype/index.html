@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台球联盟管理系统</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 侧边栏 -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">台球联盟管理</div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">数据中心</div>
+        <a href="index.html" class="nav-item active">
+          <span class="nav-item-icon">📊</span>
+          <span>数据看板</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">基础管理</div>
+        <a href="clubs.html" class="nav-item">
+          <span class="nav-item-icon">🎱</span>
+          <span>台球厅管理</span>
+        </a>
+        <a href="assistants.html" class="nav-item">
+          <span class="nav-item-icon">👤</span>
+          <span>助教管理</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">业务中心</div>
+        <a href="tournaments.html" class="nav-item">
+          <span class="nav-item-icon">🏆</span>
+          <span>比赛管理</span>
+        </a>
+        <a href="rankings.html" class="nav-item">
+          <span class="nav-item-icon">📈</span>
+          <span>奖金积分</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- 主内容区 -->
+  <main class="main-content">
+    <header class="page-header">
+      <h1 class="page-title">数据看板</h1>
+      <div class="page-actions">
+        <button class="btn btn-secondary">📅 2026年4月</button>
+      </div>
+    </header>
+
+    <div class="page-content page-dashboard">
+      <!-- 统计卡片 -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">🎱</div>
+          <div class="stat-info">
+            <h3>12</h3>
+            <p>台球厅总数</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">👤</div>
+          <div class="stat-info">
+            <h3>48</h3>
+            <p>注册助教</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange">🏆</div>
+          <div class="stat-info">
+            <h3>156</h3>
+            <p>举办比赛</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple">👥</div>
+          <div class="stat-info">
+            <h3>2,380</h3>
+            <p>参赛人次</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- 近期比赛 -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">近期比赛</h3>
+            <a href="tournaments.html" class="btn btn-sm btn-secondary">查看全部</a>
+          </div>
+          <div class="table-wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>比赛名称</th>
+                  <th>主办球厅</th>
+                  <th>时间</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>春季会员赛</td>
+                  <td>星牌台球俱乐部</td>
+                  <td>2026-04-25</td>
+                  <td><span class="status status-finished">已结束</span></td>
+                </tr>
+                <tr>
+                  <td>青少年选拔赛</td>
+                  <td>来力台球城</td>
+                  <td>2026-04-28</td>
+                  <td><span class="status status-ongoing">进行中</span></td>
+                </tr>
+                <tr>
+                  <td>五一劳动节杯</td>
+                  <td>绅士台球会所</td>
+                  <td>2026-05-01</td>
+                  <td><span class="status status-preparing">筹备中</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 数据趋势 -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">月度趋势</h3>
+          </div>
+          <div style="padding: 20px 0; text-align: center; color: var(--text-light);">
+            <p style="margin-bottom: 16px;">📈 比赛场次趋势</p>
+            <div style="display: flex; align-items: flex-end; justify-content: center; gap: 12px; height: 120px;">
+              <div style="width: 40px; background: var(--primary); border-radius: 4px 4px 0 0;" title="1月: 8场"><span style="font-size:11px">8</span></div>
+              <div style="width: 40px; background: var(--primary); border-radius: 4px 4px 0 0; height: 75%;" title="2月: 6场"><span style="font-size:11px">6</span></div>
+              <div style="width: 40px; background: var(--primary); border-radius: 4px 4px 0 0; height: 100%;" title="3月: 12场"><span style="font-size:11px">12</span></div>
+              <div style="width: 40px; background: var(--primary); border-radius: 4px 4px 0 0; height: 90%;" title="4月: 10场"><span style="font-size:11px">10</span></div>
+              <div style="width: 40px; background: rgba(26,95,122,0.4); border-radius: 4px 4px 0 0;" title="5月(预测)">?</div>
+            </div>
+            <p style="margin-top: 16px; font-size: 13px;">参赛人数: <strong>2,380</strong> 人次</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 球厅 TOP 5 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">球厅活跃度排行</h3>
+        </div>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>球厅名称</th>
+                <th>举办比赛</th>
+                <th>参赛人次</th>
+                <th>助教人数</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1</strong></td>
+                <td>星牌台球俱乐部</td>
+                <td>28 场</td>
+                <td>486 人次</td>
+                <td>8 人</td>
+              </tr>
+              <tr>
+                <td><strong>2</strong></td>
+                <td>来力台球城</td>
+                <td>22 场</td>
+                <td>398 人次</td>
+                <td>6 人</td>
+              </tr>
+              <tr>
+                <td><strong>3</strong></td>
+                <td>绅士台球会所</td>
+                <td>18 场</td>
+                <td>312 人次</td>
+                <td>5 人</td>
+              </tr>
+              <tr>
+                <td><strong>4</strong></td>
+                <td>黑八桌球吧</td>
+                <td>15 场</td>
+                <td>256 人次</td>
+                <td>4 人</td>
+              </tr>
+              <tr>
+                <td><strong>5</strong></td>
+                <td>皇家台球厅</td>
+                <td>12 场</td>
+                <td>198 人次</td>
+                <td>3 人</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
