@@ -596,3 +596,89 @@ body {
   font-weight: 700;
   color: var(--primary);
 }
+
+/* 排行榜徽章 */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rank-badge.gold { background: linear-gradient(135deg, #ffd700, #ffb347); color: #8B6914; }
+.rank-badge.silver { background: linear-gradient(135deg, #c0c0c0, #e8e8e8); color: #666; }
+.rank-badge.bronze { background: linear-gradient(135deg, #cd7f32, #e8a860); color: #5c3d1e; }
+.rank-badge.master { background: rgba(156, 39, 176, 0.1); color: #9c27b0; }
+.rank-badge.pro { background: rgba(26, 95, 122, 0.1); color: var(--primary); }
+.rank-badge.amateur { background: rgba(250, 173, 20, 0.1); color: var(--warning); }
+.rank-badge.newbie { background: rgba(102, 102, 102, 0.1); color: var(--text-light); }
+
+/* 进度条 */
+.progress-bar {
+  height: 8px;
+  background: var(--bg-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* 球员分析页面 */
+.page-player-analysis .stats-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.page-player-analysis .player-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--white);
+}
+
+/* 比赛统计页面 */
+.page-match-stats .stats-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.page-match-stats .chart-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  height: 160px;
+  margin-bottom: 16px;
+}
+
+.page-match-stats .chart-bar-item {
+  text-align: center;
+}
+
+.page-match-stats .chart-bar-item .bar {
+  width: 48px;
+  background: var(--primary);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.3s ease;
+}
+
+.page-match-stats .chart-bar-item .label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.page-match-stats .chart-bar-item .value {
+  font-size: 11px;
+  color: var(--primary);
+}

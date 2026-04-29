@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>比赛统计 - 台球联盟管理系统</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">台球联盟管理</div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">数据中心</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-icon">📊</span>
+          <span>数据看板</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">基础管理</div>
+        <a href="clubs.html" class="nav-item">
+          <span class="nav-item-icon">🎱</span>
+          <span>台球厅管理</span>
+        </a>
+        <a href="assistants.html" class="nav-item">
+          <span class="nav-item-icon">👤</span>
+          <span>助教管理</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">业务中心</div>
+        <a href="tournaments.html" class="nav-item">
+          <span class="nav-item-icon">🏆</span>
+          <span>比赛管理</span>
+        </a>
+        <a href="rankings.html" class="nav-item">
+          <span class="nav-item-icon">📈</span>
+          <span>奖金积分</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">报表分析</div>
+        <a href="player-analysis.html" class="nav-item">
+          <span class="nav-item-icon">👥</span>
+          <span>球员分析</span>
+        </a>
+        <a href="match-stats.html" class="nav-item active">
+          <span class="nav-item-icon">📋</span>
+          <span>比赛统计</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <h1 class="page-title">比赛统计</h1>
+      <div class="page-actions">
+        <select class="form-select" style="width: 150px;">
+          <option value="2026">2026年</option>
+          <option value="2025">2025年</option>
+        </select>
+        <button class="btn btn-secondary">📤 导出报告</button>
+      </div>
+    </header>
+
+    <div class="page-content page-match-stats">
+      <!-- 统计卡片 -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">🏆</div>
+          <div class="stat-info">
+            <h3>156</h3>
+            <p>总比赛场次</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green">👥</div>
+          <div class="stat-info">
+            <h3>2,380</h3>
+            <p>总参赛人次</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange">📅</div>
+          <div class="stat-info">
+            <h3>12</h3>
+            <p>本月新增</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple">⏱️</div>
+          <div class="stat-info">
+            <h3>4.5h</h3>
+            <p>平均时长</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- 赛制分布 -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">赛制分布</h3>
+          </div>
+          <div style="padding: 20px;">
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span>单败淘汰</span>
+                <span style="font-weight: 600;">58%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 58%; background: var(--primary);"></div>
+              </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span>双败淘汰</span>
+                <span style="font-weight: 600;">25%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%; background: var(--secondary);"></div>
+              </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span>循环赛</span>
+                <span style="font-weight: 600;">12%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 12%; background: var(--accent);"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                <span>瑞士制</span>
+                <span style="font-weight: 600;">5%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 5%; background: var(--purple);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 球厅比赛分布 -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">球厅比赛分布</h3>
+          </div>
+          <div class="table-wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>球厅</th>
+                  <th>场次</th>
+                  <th>占比</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>星牌台球俱乐部</td>
+                  <td><strong>48</strong></td>
+                  <td>30.8%</td>
+                </tr>
+                <tr>
+                  <td>来力台球城</td>
+                  <td><strong>38</strong></td>
+                  <td>24.4%</td>
+                </tr>
+                <tr>
+                  <td>绅士台球会所</td>
+                  <td><strong>32</strong></td>
+                  <td>20.5%</td>
+                </tr>
+                <tr>
+                  <td>黑八桌球吧</td>
+                  <td><strong>22</strong></td>
+                  <td>14.1%</td>
+                </tr>
+                <tr>
+                  <td>皇家台球厅</td>
+                  <td><strong>16</strong></td>
+                  <td>10.3%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 月度趋势 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">月度比赛趋势</h3>
+        </div>
+        <div style="padding: 20px;">
+          <div style="display: flex; align-items: flex-end; justify-content: center; gap: 16px; height: 160px; margin-bottom: 16px;">
+            <div style="text-align: center;">
+              <div style="width: 48px; background: var(--primary); border-radius: 6px 6px 0 0; height: 80px;" title="1月: 12场"></div>
+              <div style="margin-top: 8px; font-size: 12px; color: var(--text-light);">1月</div>
+              <div style="font-size: 11px; color: var(--primary);">12场</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 48px; background: var(--primary); border-radius: 6px 6px 0 0; height: 60px;" title="2月: 8场"></div>
+              <div style="margin-top: 8px; font-size: 12px; color: var(--text-light);">2月</div>
+              <div style="font-size: 11px; color: var(--primary);">8场</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 48px; background: var(--primary); border-radius: 6px 6px 0 0; height: 100px;" title="3月: 15场"></div>
+              <div style="margin-top: 8px; font-size: 12px; color: var(--text-light);">3月</div>
+              <div style="font-size: 11px; color: var(--primary);">15场</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 48px; background: var(--primary); border-radius: 6px 6px 0 0; height: 120px;" title="4月: 18场"></div>
+              <div style="margin-top: 8px; font-size: 12px; color: var(--text-light);">4月</div>
+              <div style="font-size: 11px; color: var(--primary);">18场</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 48px; background: var(--secondary); border-radius: 6px 6px 0 0; height: 70px; opacity: 0.5;" title="5月(预测): 10场"></div>
+              <div style="margin-top: 8px; font-size: 12px; color: var(--text-light);">5月</div>
+              <div style="font-size: 11px; color: var(--text-light);">预测</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 48px; background: var(--secondary); border-radius: 6px 6px 0 0; height: 90px; opacity: 0.5;" title="6月(预测): 14场"></div>
+              <div style="margin-top: 8px; font-size: 12px; color: var(--text-light);">6月</div>
+              <div style="font-size: 11px; color: var(--text-light);">预测</div>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0 16px;">
+            <div style="text-align: center;">
+              <div style="font-size: 20px; font-weight: 700; color: var(--primary);">53</div>
+              <div style="font-size: 12px; color: var(--text-light);">已完成</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 20px; font-weight: 700; color: var(--secondary);">12</div>
+              <div style="font-size: 12px; color: var(--text-light);">进行中</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 20px; font-weight: 700; color: var(--warning);">8</div>
+              <div style="font-size: 12px; color: var(--text-light);">筹备中</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 近期详细记录 -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">近期比赛详情</h3>
+        </div>
+        <div class="table-wrapper">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>比赛名称</th>
+                <th>球厅</th>
+                <th>赛制</th>
+                <th>参赛人数</th>
+                <th>时长</th>
+                <th>冠军</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>春季会员赛</strong></td>
+                <td>星牌台球俱乐部</td>
+                <td>单败淘汰</td>
+                <td>32 人</td>
+                <td>5.5h</td>
+                <td><strong>陈亮</strong></td>
+              </tr>
+              <tr>
+                <td><strong>青少年选拔赛</strong></td>
+                <td>来力台球城</td>
+                <td>双败淘汰</td>
+                <td>24 人</td>
+                <td>6h</td>
+                <td><strong>李明</strong></td>
+              </tr>
+              <tr>
+                <td><strong>周末友谊赛</strong></td>
+                <td>绅士台球会所</td>
+                <td>循环赛</td>
+                <td>16 人</td>
+                <td>4h</td>
+                <td><strong>张伟</strong></td>
+              </tr>
+              <tr>
+                <td><strong>会员周赛 #11</strong></td>
+                <td>星牌台球俱乐部</td>
+                <td>单败淘汰</td>
+                <td>20 人</td>
+                <td>4.5h</td>
+                <td><strong>王强</strong></td>
+              </tr>
+              <tr>
+                <td><strong>月度赛 #3</strong></td>
+                <td>来力台球城</td>
+                <td>瑞士制</td>
+                <td>28 人</td>
+                <td>7h</td>
+                <td><strong>刘洋</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .progress-bar {
+      height: 8px;
+      background: var(--bg-light);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+  </style>
+</body>
+</html>
